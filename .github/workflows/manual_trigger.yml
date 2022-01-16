@@ -9,7 +9,7 @@ on:
         default: '2.5.3'
 
 jobs:
-  build_android:
+  build_web:
     runs-on: ubuntu-latest
 
     steps:
