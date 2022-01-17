@@ -28,6 +28,9 @@ jobs:
       - name: Display Flutter version
         run: flutter --version
 
+      - name: Get packages
+        run: flutter pub get
+
       - name: Build Flutter Web
         run: flutter build web --release
 
