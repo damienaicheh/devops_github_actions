@@ -7,6 +7,10 @@ on:
         description: 'Flutter version'
         required: true
         default: '2.5.3'
+      publish_artifacts:
+        description: 'Publish artifacts'
+        required: true
+        default: 'true'
 
 jobs:
   build_web:
@@ -23,3 +27,13 @@ jobs:
 
       - name: Display Flutter version
         run: flutter --version
+
+      - name: Build Flutter Web
+        run: flutter build web --release
+
+      - if: github.event.inputs.publish_artifacts == 'true'
+      - name: Publish Artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: artifacts
+          path: build/web/*
